@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block page_title %} Resultado {% endblock %}
+
+{% block page_content %}
+<section class="content">
+    <div class="result-box">
+        
+        <div class="result-graph">
+            <canvas id="myChart"></canvas>
+        </div>
+        
+        <a href="/index" class="a-button">Início</a>
+    </div><!--result-box-->
+
+</section><!--content-->
+{% endblock %}<!--page-content-->
+
+{% block page_scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script>
+    var ctx = document.getElementById('myChart');
+
+var myLineChart = new Chart(ctx, {
+type: 'line',
+data: {
+    labels: {{ data_graph.x }},
+    datasets: [{
+        label: "Polinômio",
+        data: {{ data_graph.y }},
+        borderColor: 'blue',
+        backgroundColor: 'transparent'
+    }]
+},
+options: {
+    responsive: true,
+    title: {
+        display: true,
+        fontSize: 20,
+        text: "Gráfico do polinômio"
+    },
+    layout: {
+        padding: {
+            left: 50,
+            right: 50,
+            top: 0,
+            bottom: 0
+        }
+    }
+}
+});
+</script>
+{% endblock %}<!--page_scripts-->

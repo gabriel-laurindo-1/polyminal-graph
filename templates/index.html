@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block page_title %} Index {% endblock %}
+
+{% block page_content %}
+<section class="content">
+    <header>
+        <h1>Polinônio</h1>
+        <p>Veja o comportamento de sua equação polinomial de maneira gráfica.</p>
+    </header>
+
+    <form method="post">
+        {{ form.csrf_token }}
+        <div class="form-box">
+            <div class="form-field">
+                {{ form.coefficients.label }}
+                {{ form.coefficients }}
+                {% if form.coefficients.errors %}
+                {% for error in form.coefficients.errors %}
+                <span class="form-field-error"> {{ error }}</span>
+                {% endfor %}
+                {% endif %}
+            </div><!--form-field-->
+            
+            <div class="form-field col-2">
+                {{ form.down_limit.label }}
+                {{ form.down_limit }}
+                {% if form.down_limit.errors %}
+                {% for error in form.down_limit.errors %}
+                <span class="form-field-error"> {{ error }}</span>
+                {% endfor %}
+                {% endif %}
+            </div><!--form-field-->
+            
+            <div class="form-field col-2">
+                {{ form.upper_limit.label }}
+                {{ form.upper_limit }}
+                {% if form.upper_limit.errors %}
+                {% for error in form.upper_limit.errors %}
+                <span class="form-field-error"> {{ error }}</span>
+                {% endfor %}
+                {% endif %}
+            </div><!--form-field-->
+            
+            <div class="form-field">
+                {{ form.number_points.label }}
+                {{ form.number_points }}
+                {% if form.number_points.errors %}
+                {% for error in form.number_points.errors %}
+                <span class="form-field-error"> {{ error }}</span>
+                {% endfor %}
+                {% endif %}
+            </div><!--form-field-->
+            
+            <div class="form-buttons">
+                <input type="submit" value="Gerar" title="Gerar gráfico">
+            </div><!--form-buttons-->
+        </div><!---form-box-->
+        </form>
+    </section><!--content-->
+{% endblock %}<!--page-content-->
+
+
