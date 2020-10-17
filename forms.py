@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import FloatField, IntegerField, SubmitField, SelectField, StringField
 from wtforms import Form
 from wtforms.validators import DataRequired, ValidationError, InputRequired
+from functions import exist_letters, str_to_list
 
 class PolynomialForm(FlaskForm):
     coefficients = StringField(
@@ -35,7 +36,10 @@ class PolynomialForm(FlaskForm):
     )
 
     def validate_coefficients(self, coefficients):
-        pass
+        if str_to_list(coefficients.data) == []:
+            raise ValidationError("Dados inseridos incorretamente.")
+        elif exist_letters(coefficients.data):
+            raise ValidationError("Digite os coefientes separados por vírgula.")
 
     def validate_upper_limit(self, upper_limit):
         if upper_limit.data < self.down_limit.data:
