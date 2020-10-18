@@ -14,7 +14,7 @@ body{
 body > header {
     width: 100%;
     padding: 20px;
-    background-color: #0f0e36;
+    background-image: linear-gradient(to top, #0f0e36 , rgb(24, 6, 187));
     text-align: center;
     border-bottom: 1px solid #000;
     -webkit-box-shadow:  4px 11px 24px -2px rgba(0,0,0,0.73);
@@ -54,7 +54,7 @@ body > header a {
 
 .form-box {
     width: 90%;
-    padding: 1% 2%;
+    padding: 2%;
     margin: 10px auto;
     border: 0;
     border-radius: 10px;
@@ -104,6 +104,7 @@ body > header a {
     padding: 10px;
     border-radius: 5px;
     border: 0;
+    margin: 5px;
     font-size: 22px;
     cursor: pointer;
 }
@@ -166,8 +167,8 @@ body > footer a {
         padding: 2%;
     }
     
-    .result-field {
-        display: block;
+    .result-graph {
         width: 100%;
+        height: auto;
     }
 }
